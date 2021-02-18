@@ -26,7 +26,7 @@ const LoginButton = ({ onLogin }) => {
     return () => {
      window.auth.removeEventListener('user_present', userId => onLogin(userId));
     }
-  }, []);
+  }, [onLogin]);
 
   return (
     <button onClick={() => window.auth.login()}>Login</button>
@@ -39,7 +39,7 @@ const LogoutButton = ({ onLogout }) => {
     return () => {
     	window.auth.removeEventListener('user_gone', () => onLogout());
     }
-  }, []);
+  }, [onLogout]);
 
   return (
     <button onClick={() => window.auth.logout()}>Logout</button>
